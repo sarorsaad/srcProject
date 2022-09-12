@@ -29,12 +29,18 @@ class MyCBV(View ):
    
 
 
-def myfbv(request):
-    return HttpResponse(' this is saror saad create FBV')
+def test1(request):
+    my_response =  """ 
+   
+    <h1> my name is <span  style ='color:red'> saror </span>  </h1>
+     <h1> i am  <span style ='color:red'> radiologist </span>  </h1>
+    """
+    return HttpResponse( my_response)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('fbv/',myfbv),
+    path('test1/',test1),
+    # path('fbv/',myfbv),
     path('',MyCBV.as_view())
 ]
 
