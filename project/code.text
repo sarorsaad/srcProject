@@ -1,0 +1,29 @@
+model.py--------------------->
+from django.db import models
+
+# Create your models here.
+class Post(models.Model):
+     title = models.CharField(max_length=30)
+     content = models.TextField(max_length=1000)
+     image = models.ImageField(upload_to="posts/")
+     def __str__(self):
+        return str(self.title)
+
+
+        admin .py
+ from django.contrib import admin
+ from . models import Post
+
+# Register your models here.
+admin.site.register(Post)
+
+views.py
+from django.shortcuts import render
+
+# Create your views here.
+from .models import posts
+
+
+def all_posts(request):
+    posts=Post.objects.all()
+    return render(request,'posts.html',{'saror':posts})
